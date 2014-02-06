@@ -1,0 +1,22 @@
+---
+temperature_threshold: 35 # In F
+device_location: 'Fire Closet'
+aws_key_id: ''
+aws_secret_key: ''
+email_addresses:
+  - 'dbryant4@gmail.com'
+  - '2024684950@tmomail.net'
+from_email_address: 'dbryant4@gmail.com'
+sleep_time: 1 # for Model B, 0 for A
+smbus: 1 # Bus to find sensors. New Pis use 1
+temperature_sensor:
+  i2c_address: 0x48
+led1:
+  pin: 11
+led2:
+  pin: 15
+buzzer:
+  pin: 13
+graphite:
+  host: metrics.derricklbryant.com
+  port: 2003
