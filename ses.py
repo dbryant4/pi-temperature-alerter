@@ -27,13 +27,16 @@ class ses:
                     (device_location, str(temperature), state.upper(), threshold),
                   to_addrs)
 
-  def test(self, verify_email_address):
-    return True
+  def test(self, verified_email_address):
     try:
-      self.conn.verify_email_address(verify_email_address)
+      res = self.conn.list_verified_email_addresses()
     except boto.exception.BotoServerError as e:
       return False
-    else:
+    verified_email_addresses = res['ListVerifiedEmailAddressesResponse']['ListVerifiedEmailAddressesResult']['VerifiedEmailAddresses'] 
+    if verified_email_address in verified_email_addresses:
       return True
+    else:
+      return False
+
 
 
