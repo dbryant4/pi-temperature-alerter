@@ -1,14 +1,17 @@
 ---
-temperature_threshold: 35 # In F
-device_location: 'Fire Closet'
+temperature_threshold: 69 # In F
+device_location: 'Outside Pipe Closet'
 aws_key_id: ''
 aws_secret_key: ''
 email_addresses:
-  - 'dbryant4@gmail.com'
-  - '2024684950@tmomail.net'
-from_email_address: 'dbryant4@gmail.com'
-sleep_time: 1 # for Model B, 0 for A
+  - 'user@gmail.com'
+  - 'phonenumber@tmomail.net'
+from_email_address: 'user@gmail.com'
+sleep_time: 10 # for Model B, 0 for A
 smbus: 1 # Bus to find sensors. New Pis use 1
+log:
+  level: DEBUG
+  file: STDOUT
 temperature_sensor:
   i2c_address: 0x48
 led1:
@@ -17,6 +20,7 @@ led2:
   pin: 15
 buzzer:
   pin: 13
+  disabled: True
 graphite:
-  host: metrics.derricklbryant.com
+  host: graphite_hosted.example.com
   port: 2003
