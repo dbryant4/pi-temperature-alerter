@@ -1,3 +1,4 @@
+import os
 import sys
 import time
 import logging
@@ -9,7 +10,7 @@ from ses import ses
 from gpio_control import gpio_control
 
 # Read configuration file
-cfg = yaml.load(file('local_settings.yml'))
+cfg = yaml.load(file(os.path.dirname(os.path.realpath(__file__)) + '/local_settings.yml'))
 
 # Setup logging module
 numeric_level = getattr(logging, cfg['log']['level'].upper(), None)
