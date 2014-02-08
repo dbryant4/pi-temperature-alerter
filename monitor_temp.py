@@ -56,7 +56,7 @@ while True:
   led1.turn_off()
   
 
-  if current_temperature < cfg['temperature_threshold'] and last_state != "under":
+  if current_temperature < (cfg['temperature_threshold'] - .5) and last_state != "under":
     ses.send_email(
             cfg['from_email_address'],
             cfg['email_addresses'],
@@ -68,7 +68,7 @@ while True:
     if not cfg['buzzer']['disabled']:
       buzzer.turn_on()
     last_state = "under"
-  elif current_temperature >= cfg['temperature_threshold'] and last_state != "over":
+  elif current_temperature >= (cfg['temperature_threshold'] + .5) and last_state != "over":
     ses.send_email(
             cfg['from_email_address'],
             cfg['email_addresses'],
