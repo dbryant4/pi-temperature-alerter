@@ -33,7 +33,8 @@ class ses:
     except boto.exception.BotoServerError as e:
       return False
     except:
-      logging.error("Unexpected error: " + sys.exc_info()[0])
+      e = sys.exc_info()[0]
+      logging.error("Unexpected error: %s" % e)
       return False
     verified_email_addresses = res['ListVerifiedEmailAddressesResponse']['ListVerifiedEmailAddressesResult']['VerifiedEmailAddresses'] 
     if verified_email_address in verified_email_addresses:
